@@ -51,10 +51,11 @@ footer{background:#fed7aa;padding:20px;text-align:center;margin-top:40px}
 <div class="menu"><!-- Menu Item Template --><!-- Image Modal --><div class="modal" id="imgModal" onclick="closeModal()">
   <img id="modalImg">
 </div><script>
-function orderJuice(name,price){
-let phone="+880 1603-090929";
-let message=`Hello Juice Junction!%0A%0AI want to order:%0A${name}%0APrice: ${price}%0A%0APlease confirm.`;
-window.open(`https://wa.me/${phone}?text=${message}`,'_blank');
+function orderNow(name, price){
+   let phone = "8801603090929"; 
+   let message = `Hello I want to order ${name} - ${price}/-`;
+   let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+   window.open(url, "_blank");
 }
 function openModal(src){
 document.getElementById('imgModal').style.display='flex';

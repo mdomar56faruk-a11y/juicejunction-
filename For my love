@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart Animation</title>
+
+<style>
+:root{
+    --flower: #ffd6e7;
+    --heart: #ff2b4f;
+}
+
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:var(--flower);
+    overflow:hidden;
+}
+
+/* Heart */
+.heart{
+    position:relative;
+    width:120px;
+    height:120px;
+    background:var(--heart);
+    transform:rotate(-45deg);
+    animation:beat 1s infinite;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:var(--heart);
+    border-radius:50%;
+}
+
+.heart::before{
+    top:-60px;
+    left:0;
+}
+
+.heart::after{
+    top:0;
+    left:60px;
+}
+
+/* Text */
+.text{
+    position:absolute;
+    top:65%;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:"Te Amo", cursive;
+    font-size:5vw;
+    font-weight:500;
+    color:var(--heart);
+    text-align:center;
+    animation:fade 2s infinite alternate;
+}
+
+/* Heart beat animation */
+@keyframes beat{
+    0%,100%{
+        transform:rotate(-45deg) scale(1);
+    }
+    50%{
+        transform:rotate(-45deg) scale(1.2);
+    }
+}
+
+/* Text glow animation */
+@keyframes fade{
+    from{
+        opacity:0.5;
+    }
+    to{
+        opacity:1;
+        text-shadow:0 0 20px var(--heart);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="heart"></div>
+<div class="text">I ❤️ You NADU</div>
+
+</body>
+</html>
